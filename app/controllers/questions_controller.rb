@@ -1,6 +1,6 @@
 get '/questions' do
   @questions = Question.order(:created_at)
-  erb :'questions/show'
+  erb :'questions/index'
 end
 
 get '/questions/new' do
@@ -17,6 +17,7 @@ post '/questions' do
     erb :'questions/new'
   end
 end
+
 
 #If we decide to create individual question pages: 
 get '/questions/:id' do

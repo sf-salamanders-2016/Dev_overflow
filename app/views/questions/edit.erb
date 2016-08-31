@@ -1,0 +1,18 @@
+<h1>Edit Question:</h1>
+
+<main class="form-wrapper" role="main">
+  <form method="post" action="/questions/<%= @question.id %>">
+    <label for="Name">Name:</label>
+    <input id="Name" name="@user[display_name]" type="text" value="<%= @user.try(:display_name) %>">
+    <label for="Name">Title:</label>
+    <input id="Title" name="@question[title]" type="text" value="<%= @question.try(:title) %>">
+
+    <label for="">Question:</label>
+    <input id="Question"  name="@question[title]" type="text" value="<%= @question.try(:title) %>">
+    <!-- <textarea id="Question" rows="10" cols="70" name="@question[title]" value="<%= @question.try() %>"form="questionform">Enter text here...</textarea> -->
+    <!-- <textarea name="hide" style="display:none;"></textarea> -->
+    <input name="_method" type="hidden" value="post" >
+    <input type="submit" value="update" class="button">
+  </form>
+</main>
+
