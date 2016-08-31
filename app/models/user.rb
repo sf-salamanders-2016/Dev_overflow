@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 class User < ActiveRecord::Base
   has_many :questions
   has_many :answers
@@ -10,6 +12,7 @@ class User < ActiveRecord::Base
 
   def password=(new_password)
     @password = BCrypt::Password.create(new_password)
+    puts "helllllo i'm a password hash"
     self.password_hash = @password
   end
 end
