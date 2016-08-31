@@ -1,22 +1,22 @@
 <h1> <%=@question.title%> </h1>
-  <div><%=@question.body%></div>
-    <div>
-      <ol>
-        <%@question.comments.each do |comment| %>
-          <li>
-            <%=comment.body%>
-            <%=comment.user.display_name%>
-          </li>
-        <%end%>
-      </ol>
-  </div>
+<div><%=@question.body%></div>
+  <div>
+    <ol>
+      <%@question.comments.each do |comment| %>
+        <li>
+          <%=comment.body%>
+          <%=comment.user.display_name%>
+        </li>
+      <%end%>
+    </ol>
+</div>
 
 <!-- COMMENT FORM -->
-  <%if current_user%>
-    <form method="post" action="/questions/<%=question.id%>/comments">
-      <input type="text" name="body" placeholder="Enter comment here">
-    </form>
-  <%end%>
+<%if current_user%>
+  <form method="post" action="/questions/<%=question.id%>/comments">
+    <input type="text" name="body" placeholder="Enter comment here">
+  </form>
+<%end%>
 
 
 
