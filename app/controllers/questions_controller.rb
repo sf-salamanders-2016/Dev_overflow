@@ -11,23 +11,23 @@ post '/questions' do
   @question = Question.new(params[:question])
   if @question.save
     redirect "/questions/#{@question.id}"
-    #we can also redirect to questions 
+    #we can also redirect to questions
   else
     @errors = @question.errors.full_messages
     erb :'questions/new'
   end
 end
 
-#If we decide to create individual question pages: 
+#If we decide to create individual question pages:
 get '/questions/:id' do
   @question = Question.find(params[:id])
-  erb :'question/show' #or individual boiler plate
+  erb :'questions/show' #or individual boiler plate
 end
 
 get '/questions/:id/edit' do
   @user = User.find(params[:display_name])
   @question = Question.find(params[:id])
-  erb :'question/edit' #or question/edit page boiler plate 
+  erb :'questions/edit' #or question/edit page boiler plate
 end
 
 post '/questions/:id' do
