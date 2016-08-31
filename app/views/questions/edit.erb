@@ -1,9 +1,9 @@
 <h1>Edit Your Question Here</h1>
 
 <main class="form-wrapper" role="main">
-  <form method="post" action="/update-the-entry/<%= @entry.id %>">
-    <label for="singer_name_input">Singer name:</label>
-    <input id="singer_name_input" name="entry[singer]" type="text" value="<%= @entry.try(:singer) %>">
+  <form method="post" action="/questions/<%= @question.id %>">
+    <label for="Question">Singer name:</label>
+    <input id="singer_name_input" name="question[singer]" type="text" value="<%= @entry.try(:singer) %>">
 
     <label for="song_title_input">Song title:</label>
     <input id="song_title_input"  name="entry[song_title]" type="text" value="<%= @entry.try(:song_title) %>">
