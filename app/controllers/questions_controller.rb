@@ -1,6 +1,6 @@
 get '/questions' do
   @questions = Question.order(:created_at)
-  erb :'questions/show'
+  erb :'questions/index'
 end
 
 get '/questions/new' do
@@ -10,15 +10,23 @@ end
 post '/questions' do
   @question = Question.new(params[:question])
   if @question.save
+<<<<<<< HEAD
     redirect "/questions/#{@question.id}"
     #we can also redirect to questions
+=======
+    redirect "/questions"
+>>>>>>> 98923b9a9744a4cc4349da12a1f2a1f301498e46
   else
     @errors = @question.errors.full_messages
     erb :'questions/new'
   end
 end
 
+<<<<<<< HEAD
 #If we decide to create individual question pages:
+=======
+
+>>>>>>> 98923b9a9744a4cc4349da12a1f2a1f301498e46
 get '/questions/:id' do
   @question = Question.find(params[:id])
   erb :'questions/show' #or individual boiler plate
