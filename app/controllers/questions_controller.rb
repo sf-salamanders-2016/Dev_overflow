@@ -18,6 +18,8 @@ post '/questions' do
 end
 
 
+#If we decide to create individual question pages:
+
 get '/questions/:id' do
   @question = Question.find(params[:id])
   erb :'questions/show' #or individual boiler plate
