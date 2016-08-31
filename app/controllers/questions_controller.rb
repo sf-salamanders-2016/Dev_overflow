@@ -25,11 +25,13 @@ get '/questions/:id' do
 end
 
 get '/questions/:id/edit' do
+  @user = User.find(params[:display_name])
   @question = Question.find(params[:id])
   erb :'question/edit' #or question/edit page boiler plate 
 end
 
 post '/questions/:id' do
+  @user = User.find(params[:display_name])
   @question = Question.find(params[:id])
   @question.update_attributes(params[:question])
   redirect "/questions/#{@question.id}"
