@@ -1,5 +1,3 @@
-##Dev_overflow 
-
 ##Welcome to DevOverflow
 
 Welcome to DevOverflow! This project is was inspired by the developer-friendly website name stackoverflow.com. When developers run
