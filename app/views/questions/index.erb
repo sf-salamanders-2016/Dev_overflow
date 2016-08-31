@@ -1,0 +1,17 @@
+
+
+<div>
+  <h2>Top Questions</h2>
+</div>
+
+
+<div>
+  <!-- Container for Questions -->
+  <%@questions.each do |question|%>
+    <div>
+    <!-- Container per question -->
+      <div>Votes | answers | views </div>
+      <div><a href="/questions/#{<%= question.id %>}"><%= question.title %></a></div>
+    </div>
+  <% end %>
+</div>
