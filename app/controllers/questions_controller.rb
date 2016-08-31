@@ -26,7 +26,7 @@ end
 
 get '/questions/:id/edit' do
   @question = Question.find(params[:id])
-  erb :'question/show' #or question/edit page boiler plate 
+  erb :'question/edit' #or question/edit page boiler plate 
 end
 
 post '/questions/:id' do
