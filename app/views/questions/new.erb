@@ -1,0 +1,38 @@
+<h1>Please ask the developer community a question:</h1>
+
+<main class="form-wrapper" role="main">
+
+  <% if @errors %>
+    <div class="errors-wrap">
+      <span>Your entry could not be saved:</span>
+      <ul class="errors">
+        <% @errors.each do |error| %>
+          <li class="error"><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <form method="post" action="/questions">
+    <label for="Title">Question Title:</label>
+    <input id="question_title" name="question[title]" type="text" value="<%= @question.try(:title) %>">
+
+    <label for="question">Question Narrative:</label>
+    <input id="question_body" name="question[body]" type="text" value="<%= @question.try(:body) %>">
+
+    <input type="submit" value="Submit Question" class="button">
+  </form>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
