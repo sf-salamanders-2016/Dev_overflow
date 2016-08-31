@@ -60,3 +60,7 @@ delete '/users/:id' do
   @user.destroy
   redirect "/users"
 end
+
+get '/questions' do
+  erb :'questions/index'
+end
