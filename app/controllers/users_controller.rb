@@ -14,11 +14,14 @@ end
 post '/users' do
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
+  puts params
 
   @user = User.new(params)
 
+
   if params[:email] =~ VALID_EMAIL_REGEX
-    @user.password = params[:password]
+    puts "is this hitting?"
+    @user.password = params[:password_hash]
     if @user.save
       redirect '/sessions/new'
     else
@@ -59,4 +62,8 @@ delete '/users/:id' do
   @user = User.find(params[:id])
   @user.destroy
   redirect "/users"
+end
+
+get '/questions' do
+  erb :'questions/index'
 end
