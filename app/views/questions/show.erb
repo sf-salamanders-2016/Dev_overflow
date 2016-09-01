@@ -1,20 +1,53 @@
 
 <h1> <%=@question.title%> </h1>
-  <div><%=@question.body%></div>
+<div><%=@question.body%></div>
+  <div>
+    <ol>
+      <%@question.comments.each do |comment| %>
+        <li>
+          <%=comment.body%> - <%=comment.user.display_name%>
+        </li>
+      <%end%>
+    </ol>
+</div>
+
+<!-- COMMENT FORM -->
+<%if current_user%>
+  <form method="post" action="/questions/<%=@question.id%>/comments">
+    <input type="text" name="body" placeholder="Enter comment here">
+    <input type="submit" value="Submit">
+  </form>
+<%end%>
+
+
+<% @question.answers.each do |answer| %>
+  <div><%=answer.body%></div>
     <div>
       <ol>
-        <%@question.comments.each do |comment| %>
+        <%answer.comments.each do |comment| %>
           <li>
-            <%=comment.body%>
-            <%=comment.user.display_name%>
+            <%=comment.body%> - <%=comment.user.display_name%>
           </li>
         <%end%>
       </ol>
   </div>
 
-<!-- COMMENT FORM -->
+  <!-- COMMENT FORM -->
   <%if current_user%>
-    <form method="post" action="/questions/<%=question.id%>/comments">
+    <form method="post" action="/questions/<%=@question.id%>/answers/<%=answer.id%>/comments">
       <input type="text" name="body" placeholder="Enter comment here">
+      <input type="submit" value="Submit">
     </form>
   <%end%>
+<% end %>
+
+<%if current_user%>
+  <form method="post" action="/questions/<%=@question.id%>/answers">
+    <div><label>Enter your answer below</label></div>
+    <textarea name="body" rows="5" cols="50" placeholder="Enter answer here"></textarea>
+    <input type="submit" value="Submit">
+
+  </form>
+<% end %>
+
+
