@@ -47,6 +47,7 @@ We hope to deploy to Heroku!
 3. tchua93
 4. y0una
 5. jeffreyroy
+6. cray9503
 
 Please visit their home page on Github to view their projects!
 
