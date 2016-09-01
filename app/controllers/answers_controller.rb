@@ -5,6 +5,7 @@
 post '/questions/:id/answers' do
   @question = Question.find(params[:id])
   @answer = Answer.new(body: params[:body])
+  @answer.user_id = current_user.id
   # @answer.question_id = params[:id]
   if @answer.save
     @question.answers << @answer
