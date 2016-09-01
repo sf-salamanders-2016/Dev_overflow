@@ -1,0 +1,20 @@
+.question_list_container {
+  width: 70%;
+
+}
+
+.question_container {
+  width: 100%;
+  padding: 10px;
+  display: block;
+}
+
+.stats_container {
+  width: 30%;
+  float: left;
+}
+
+.question_title {
+  width: 68%;
+  float: right;
+}
