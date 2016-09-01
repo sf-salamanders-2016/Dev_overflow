@@ -10,17 +10,22 @@
   <!--
     application.css is where you put your styles
   -->
-  <link rel="stylesheet" href="/css/application.css">
+  <link rel="stylesheet" href="/css/layout.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>DevOverflow</title>
 </head>
-<header>
+<header id="header">
   <%= erb :_header %>
+  <header></header>
 </header>
 <body>
+
+  <h1 id="logo"><a class='link' id='title' style='color:black;' href="/questions">DevOverflow</a></h1>
+  <h2 id='code'>json.loads('["foo", {"bar":["baz", null, 1.0, 2]}]')</h2>
+  
   <%= yield %>
 </body>
 </html>
