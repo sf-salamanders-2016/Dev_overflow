@@ -1,17 +1,24 @@
+<link rel="stylesheet" href="/css/questions_index.css">
 
-
-<div>
+<div class="header_container">
   <h2>Top Questions</h2>
 </div>
 
 
-<div>
+<div class="question_list_container">
   <!-- Container for Questions -->
   <%@questions.each do |question|%>
-    <div>
+    <div class="question_container">
     <!-- Container per question -->
-      <div>Votes | answers | views </div>
-      <div><a href="/questions/<%=question.id %>"><%= question.title %></a></div>
+      <div class="stats_container">Votes: <%= question.count_up_votes %> | Answers: <%= question.answers.count %> </div>
+      <div class="question_title"><a href="/questions/<%=question.id %>"><%= question.title %></a></div>
     </div>
   <% end %>
+</div>
+
+<br><br><br>
+
+<div class="new_question">
+  <a href="/questions/new"> Add new question </a>
+
 </div>
