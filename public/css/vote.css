@@ -10,9 +10,10 @@
   max-width: 800px;
   margin: 0 auto;
   margin-bottom: 20px;
+  margin-top: 20px;
   padding: 0 1em;
   padding-bottom: 20px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid gainsboro;
 }
 
 .commentcontainer {
@@ -22,6 +23,8 @@
   margin-bottom: 30px;
   padding: 0 1em;
   font-size: 80%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid gainsboro;
 }
 
 .pagecontainer {
@@ -32,6 +35,12 @@
   position: relative;
 }
 
+.hcontainer {
+  border-bottom: 1px solid gainsboro;
+  margin-bottom: 20px;
+}
+
 button[disabled] .fa {
   color: gray;
 }
+

@@ -1,5 +1,9 @@
+<header><a href="/questions">Home</a></header>
 <div class="pagecontainer">
+  <div class="hcontainer">
     <h1> <%=@question.title%> </h1>
+  </div>
+
   <form class="voteform", method = "post" action="/questions/<%=@question.id%>/votes">
     <div><button type = "submit", name = "upVote", value = "true" <%= @question.already_voted?(current_user) ? "disabled" : "" %>><i class="fa fa-thumbs-up" aria-hidden="true"></i></button></div>
     <div><%=@question.rating%></div>
@@ -28,7 +32,9 @@
     <%end%>
   </div>
 
-  <h2>Answers</h2>
+  <div class="hcontainer">
+    <h2>Answers</h2>
+  </div>
 
   <% @question.answers.each do |answer| %>
     <form class="voteform", method = "post" action="/questions/<%=@question.id%>/answers/<%=answer.id%>/votes">
@@ -61,13 +67,15 @@
   </div>
   <% end %>
 
-  <%if current_user%>
-    <form method="post" action="/questions/<%=@question.id%>/answers">
-      <div><label>Enter your answer below</label></div>
-      <textarea name="body" rows="5" cols="50" placeholder="Enter answer here"></textarea>
-      <input type="submit" value="Submit">
+  <div class="postcontainer">
+    <%if current_user%>
+      <form method="post" action="/questions/<%=@question.id%>/answers">
+        <div><label>Enter your answer below</label></div>
+        <br>
+        <textarea name="body" rows="5" cols="50" placeholder="Enter answer here"></textarea>
+        <input type="submit" value="Submit">
 
-    </form>
-  <% end %>
+      </form>
+    <% end %>
+  </div>
 </div>
-
