@@ -1,23 +1,23 @@
-<div>
-  <h1>Register with Dev Overflow</h1>
 
+  <h1 class="login_title">Register</h1>
 
-  <form action="/users" method="POST">
-    <div>
-      <label for="display_name">Name:</label>
-      <input type="text" name="display_name" placeholder="Please enter your name">
-    </div>
-    <div>
-      <label for="email">Email:</label>
-      <input type="text" name="email" placeholder="Please enter your email address">
-    </div>
-    <div>
-      <label for="password_hash">Password:</label>
-      <input type="password" name="password_hash">
-    </div>
-    <div>
-      <input type="submit" value="Register!!">
-    </div>
-  </form>
+  <div class="form_container">
+    <form action="/users" method="POST">
+      <div class="form_lables">
+        <label for="display_name">Name:</label></br>
+        <input type="text" name="display_name" placeholder="Name">
+      </div>
+      <div class="form_lables">
+        <label for="email">Email:</label></br>
+        <input type="text" name="email" placeholder="Email">
+      </div>
+      <div class="form_lables">
+        <label for="password_hash">Password:</label></br>
+        <input type="password" name="password_hash" placeholder="Password">
+      </div>
+      <div class="submit_button">
+        <input type="submit" value="Register!!">
+      </div>
+    </form>
 
-</div>
+  </div>
