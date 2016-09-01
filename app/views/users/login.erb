@@ -1,17 +1,17 @@
 <div>
-  <h1>Log-in</h1>
+  <h1 class="login_title">Log-in</h1>
 
 
-  <form action="/sessions" method="POST">
-    <div>
+  <form class="form_container" action="/sessions" method="POST">
+    <div class="form_lables">
       <label for="email">Email:</label>
-      <input type="text" name="email" placeholder="Please enter your email address">
+      <input type="text" name="email" placeholder="Email">
     </div>
-    <div>
+    <div class="form_lables">
       <label for="password">Password:</label>
-      <input type="password" name="password">
+      <input type="password" name="password" placeholder="Password">
     </div>
-    <div>
+    <div class="submit_button">
       <input type="submit" value="Log-in!!">
     </div>
   </form>

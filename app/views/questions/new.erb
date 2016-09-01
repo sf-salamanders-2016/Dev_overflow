@@ -1,4 +1,4 @@
-<h1>Please ask the developer community a question:</h1>
+<h1 class="login_title">Please ask the developer community a question:</h1>
 
 <main class="form-wrapper" role="main">
 
@@ -14,14 +14,18 @@
   <% end %>
 
 
-  <form method="post" action="/questions">
-    <label for="Title">Question Title:</label>
-    <input id="question_title" name="question[title]" type="text" value="<%= @question.try(:title) %>">
-
-    <label for="question">Question Narrative:</label>
-    <input id="question_body" name="question[body]" type="text" value="<%= @question.try(:body) %>">
-
-    <input type="submit" value="Submit Question" class="button">
+  <form class="form_container" method="post" action="/questions">
+    <div class="form_lables">
+      <label for="Title">Question Title:</label>
+      <input id="question_title" name="question[title]" type="text" value="<%=   @question.try(:title) %>">
+    </div>
+    <div class="form_lables">
+      <label for="question">Question Narrative:</label>
+      <textarea id="question_body" name="question[body]" value="<%= @question.try(:body) %>"></textarea>
+    </div>
+    <div class="form_lables">
+     <input type="submit" value="Submit Question" class="button">
+    </div>
   </form>
 </main>
 
