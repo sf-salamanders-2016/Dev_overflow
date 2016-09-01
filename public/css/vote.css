@@ -1,0 +1,46 @@
+.voteform {
+  float: left;
+  position: absolute;
+  width: 100px;
+  left: -30px;
+}
+
+.postcontainer {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 0 1em;
+  padding-bottom: 20px;
+  border-bottom: 1px solid gainsboro;
+}
+
+.commentcontainer {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  padding: 0 1em;
+  font-size: 80%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid gainsboro;
+}
+
+.pagecontainer {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1em;
+  position: relative;
+}
+
+.hcontainer {
+  border-bottom: 1px solid gainsboro;
+  margin-bottom: 20px;
+}
+
+button[disabled] .fa {
+  color: gray;
+}
+
