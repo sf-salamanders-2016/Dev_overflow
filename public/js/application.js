@@ -6,7 +6,7 @@ $(document).ready(function() {
 
 // Ajax request for voting on a Question
 var questionVoteListener = function(){
-  $(".voteBtn").on("click", function(event){
+  $(".qVoteBtn").on("click", function(event){
     // prevent button from submitting POST request
     event.preventDefault();
     var form = $(this).parent().parent();
@@ -23,7 +23,7 @@ var questionVoteListener = function(){
     .done(function(response){
     // console.log(response);
       $("#votePopularity").html(response);
-      form.find(".voteBtn").prop("disabled", true);
+      form.find(".qVoteBtn").prop("disabled", true);
       // .attr("disabled", "disabled");
     });
   });
@@ -31,14 +31,18 @@ var questionVoteListener = function(){
 
 // Ajax request for voting on an Answer
 var answerVoteListener = function(){
-  $(".voteBtn").on("click", function(event){
+  $(".aVoteBtn").on("click", function(event){
     // prevent button from submitting POST request
     event.preventDefault();
+    // this is the button that was clicked
     var form = $(this).parent().parent();
-    var answerID = form.attr("id");
+    var answerID = form.attr("id"); // id = "<%=answer.id%>"
     var vote = $(this).val(); // true or false translate to key:value
+    // what question is this page for? (to put it in the url route)
+    // way to look up the question ID
+    // (attr returns first id)
     var questionID = $(".voteform").attr("id");
-    console.log(vote);
+    // console.log(vote);
 
     $.ajax({
       method: "post",
@@ -48,7 +52,7 @@ var answerVoteListener = function(){
 
     .done(function(response){
       $("#a" + answerID).html(response);
-      form.find(".voteBtn").prop("disabled", true);
+      form.find(".aVoteBtn").prop("disabled", true);
     });
   });
 };
