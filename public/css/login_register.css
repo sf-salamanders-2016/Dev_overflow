@@ -1,0 +1,32 @@
+.form_container {
+  border: solid 1px #d3d3d3;
+  margin: auto;
+  width: 25%;
+  height: 300px;
+  padding-top: 60px;
+}
+
+
+.form_lables {
+  margin: auto;
+  width: 35%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.submit_button {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.login_title {
+  text-align: center;
+  padding: 20px;
+}
+
+
+textarea {
+  width: 168px;
+  height: 100px;
+
+}

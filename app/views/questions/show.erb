@@ -1,0 +1,88 @@
+<header><a href="/questions">Home</a></header>
+<div class="pagecontainer">
+  <div class="hcontainer">
+    <h1> <%=@question.title%> </h1>
+  </div>
+  <!--up vote-->
+  <form id = "<%=@question.id%>", class="voteform", method = "post" action="/questions/<%=@question.id%>/votes">
+    <div><button class = "qVoteBtn", type = "submit", name = "upVote", value = "true" <%= @question.already_voted?(current_user) ? "disabled" : "" %>><i class="fa fa-thumbs-up" aria-hidden="true"></i></button></div>
+
+    <div id = "votePopularity"><%=@question.rating%></div>
+
+    <!-- down Vote button-->
+    <div><button class = "qVoteBtn", type = "submit", name = "upVote", value = "false" <%=@question.already_voted?(current_user) ? "disabled" : "" %>><i class="fa fa-thumbs-down" aria-hidden="true"></i></button></div>
+  </form>
+
+  <div class="postcontainer">
+    <div><%=@question.body%></div>
+  </div>
+  <div class="commentcontainer">
+      <div>
+        <ol>
+          <%@question.comments.each do |comment| %>
+            <li>
+              <%=comment.body%> - <%=comment.user.display_name%>
+            </li>
+          <%end%>
+        </ol>
+    </div>
+    <!-- COMMENT FORM -->
+    <%if current_user%>
+      <form method="post" action="/questions/<%=@question.id%>/comments">
+        <input type="text" name="body" placeholder="Enter comment here">
+        <input type="submit" value="Submit">
+      </form>
+    <%end%>
+  </div>
+
+  <div class="hcontainer">
+    <h2>Answers</h2>
+  </div>
+
+  <% @question.answers.each do |answer| %>
+    <form class="voteform", id = "<%=answer.id%>", method = "post" action="/questions/<%=@question.id%>/answers/<%=answer.id%>/votes">
+
+    <!-- up Vote button-->
+      <div><button class="aVoteBtn", type = "submit", name = "upVote", value = "true" <%= answer.already_voted?(current_user) ? "disabled" : "" %>><i class="fa fa-thumbs-up" aria-hidden="true"></i></button></div>
+
+      <div id="a<%=answer.id%>"><%=answer.rating%></div>
+    <!-- down Vote button-->
+      <div><button class="aVoteBtn", type = "submit", name = "upVote", value = "false" <%=answer.already_voted?(current_user) ? "disabled" : "" %>><i class="fa fa-thumbs-down" aria-hidden="true"></i></button></div>
+
+    </form>
+
+  <div class="postcontainer">
+    <div><%=answer.body%></div>
+    </div>
+    <div class="commentcontainer">
+      <div>
+        <ol>
+          <%answer.comments.each do |comment| %>
+            <li>
+              <%=comment.body%> - <%=comment.user.display_name%>
+            </li>
+          <%end%>
+        </ol>
+    </div>
+    <!-- COMMENT FORM -->
+    <%if current_user%>
+      <form method="post" action="/questions/<%=@question.id%>/answers/<%=answer.id%>/comments">
+        <input type="text" name="body" placeholder="Enter comment here">
+        <input type="submit" value="Submit">
+      </form>
+    <%end%>
+  </div>
+  <% end %>
+
+  <div class="postcontainer">
+    <%if current_user%>
+      <form method="post" action="/questions/<%=@question.id%>/answers">
+        <div><label>Enter your answer below</label></div>
+        <br>
+        <textarea name="body" rows="5" cols="50" placeholder="Enter answer here"></textarea>
+        <input type="submit" value="Submit">
+
+      </form>
+    <% end %>
+  </div>
+</div>
