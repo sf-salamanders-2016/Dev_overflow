@@ -3,12 +3,14 @@
   <div class="hcontainer">
     <h1> <%=@question.title%> </h1>
   </div>
-
+  <!--up vote-->
   <form id = "<%=@question.id%>", class="voteform", method = "post" action="/questions/<%=@question.id%>/votes">
-    <div><button class = "voteBtn", type = "submit", name = "upVote", value = "true" <%= @question.already_voted?(current_user) ? "disabled" : "" %>><i class="fa fa-thumbs-up" aria-hidden="true"></i></button></div>
+    <div><button class = "qVoteBtn", type = "submit", name = "upVote", value = "true" <%= @question.already_voted?(current_user) ? "disabled" : "" %>><i class="fa fa-thumbs-up" aria-hidden="true"></i></button></div>
+
     <div id = "votePopularity"><%=@question.rating%></div>
 
-    <div><button class = "voteBtn", type = "submit", name = "upVote", value = "false" <%=@question.already_voted?(current_user) ? "disabled" : "" %>><i class="fa fa-thumbs-down" aria-hidden="true"></i></button></div>
+    <!-- down Vote button-->
+    <div><button class = "qVoteBtn", type = "submit", name = "upVote", value = "false" <%=@question.already_voted?(current_user) ? "disabled" : "" %>><i class="fa fa-thumbs-down" aria-hidden="true"></i></button></div>
   </form>
 
   <div class="postcontainer">
@@ -39,9 +41,13 @@
 
   <% @question.answers.each do |answer| %>
     <form class="voteform", id = "<%=answer.id%>", method = "post" action="/questions/<%=@question.id%>/answers/<%=answer.id%>/votes">
-       <div><button class="voteBtn", type = "submit", name = "upVote", value = "true" <%= answer.already_voted?(current_user) ? "disabled" : "" %>><i class="fa fa-thumbs-up" aria-hidden="true"></i></button></div>
+
+    <!-- up Vote button-->
+      <div><button class="aVoteBtn", type = "submit", name = "upVote", value = "true" <%= answer.already_voted?(current_user) ? "disabled" : "" %>><i class="fa fa-thumbs-up" aria-hidden="true"></i></button></div>
+
       <div id="a<%=answer.id%>"><%=answer.rating%></div>
-      <div><button class="voteBtn", type = "submit", name = "upVote", value = "false" <%=answer.already_voted?(current_user) ? "disabled" : "" %>><i class="fa fa-thumbs-down" aria-hidden="true"></i></button></div>
+    <!-- down Vote button-->
+      <div><button class="aVoteBtn", type = "submit", name = "upVote", value = "false" <%=answer.already_voted?(current_user) ? "disabled" : "" %>><i class="fa fa-thumbs-down" aria-hidden="true"></i></button></div>
 
     </form>
 
