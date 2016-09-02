@@ -36,10 +36,12 @@ post '/questions/:id/answers/:answer_id/votes' do
     p @answer.votes
     @answer.votes << @vote # @answer.votes has a bunch of methods. .vote is from association
     p @answer.votes
+
+    # if there is an AJAX request
     if request.xhr?
-      @answer.rating.to_s
+      @answer.rating.to_s # .rating is from association
     else
-      redirect "/questions/#{@question.id}"
+      redirect "/questions/#{@question.id}" #
     end
   else
   # if vote doesn't save
